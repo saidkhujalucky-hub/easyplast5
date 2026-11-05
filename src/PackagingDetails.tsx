@@ -20,7 +20,7 @@ export function HeroShowcase({onConfigure}:{onConfigure:(product:Product)=>void}
 
 export function CatalogSizes({product,onChoose}:{product:Product;onChoose:(size:SizeOption|null)=>void}) {
   const {t}=useI18n();
-  return <div className="catalog-sizes" role="group" aria-label={`${t("Размер")}: ${t(product.name)}`}>
+  return <div className={`catalog-sizes ${product.key === "cookies" ? "cookie-size-grid" : ""}`} role="group" aria-label={`${t("Размер")}: ${t(product.name)}`}>
     {sizeOptions(product).map(size=><button type="button" key={`${size.width}-${size.length}`} onClick={()=>onChoose(size)}>{size.width}{size.length!==undefined?` × ${size.length}`:""} {t("см")}</button>)}
     <button className="own-size" type="button" onClick={()=>onChoose(null)}><Plus size={12}/>{t("Свой размер")}</button>
   </div>;
@@ -30,7 +30,7 @@ export function SizeSelector({product,mode,width,length,onPreset,onCustom}:{prod
   const {t}=useI18n();
   return <div className="size-selector">
     <div className="size-selector-heading"><Ruler size={17}/><span>{t(sizeOptions(product).length?product.label:"Индивидуальный размер")}</span></div>
-    <div className="size-choice-buttons" role="group" aria-label={t("Выбор размера")}>
+    <div className={`size-choice-buttons ${product.key === "cookies" ? "cookie-size-grid" : ""}`} role="group" aria-label={t("Выбор размера")}>
       {sizeOptions(product).map(size=><button type="button" key={`${size.width}-${size.length}`} aria-pressed={mode==="preset"&&width===size.width&&(size.length===undefined||length===size.length)} onClick={()=>onPreset(size)}>{size.width}{size.length!==undefined?` × ${size.length}`:""} {t("см")}</button>)}
       <button type="button" className="own-size" aria-pressed={mode==="custom"} onClick={onCustom}><Plus size={14}/>{t("Свой размер")}</button>
     </div>

@@ -2,10 +2,10 @@ export const siteCopy = {
   ru: {
     company: {
       eyebrow: "О КОМПАНИИ / EASY PLAST",
-      title: "Упаковка для вашего бизнеса.",
-      emphasis: "Под нужный размер.",
-      description: "Easy Plast предлагает полиэтиленовую упаковку для 19-литровых бутылей, печенья, брокколи, ковров в рулонах, магазинов и бытовых задач. Выберите готовый размер или настройте упаковку под свой продукт.",
-      highlights: ["Пакеты и защитная плёнка", "Размеры и цвета на выбор", "Заказы и доставка по согласованию"],
+      title: "ООО «Easy Plast» — производство упаковки в Келесе.",
+      emphasis: "Для вашего бизнеса и ваших задач.",
+      description: "Компания ООО «Easy Plast» занимается производством полиэтиленовых пакетов и защитной упаковки. По ранее опубликованным материалам компании завод и головной офис расположены в Ташкентской области, городе Келес, на улице Бинокор. В ассортименте — упаковка для воды, печенья, овощей, ковров и магазинов. Размеры, цвет и толщину можно согласовать под задачу.",
+      highlights: ["Производство: Келес, Ташкентская область", "Полиэтиленовые пакеты и упаковка", "Размеры и цвета под заказ"],
       contact: "Связаться с Easy Plast",
       catalog: "Посмотреть каталог",
       custom: "Свой размер"
@@ -34,10 +34,10 @@ export const siteCopy = {
   uz: {
     company: {
       eyebrow: "KOMPANIYA HAQIDA / EASY PLAST",
-      title: "Biznesingiz uchun qadoqlash.",
-      emphasis: "Kerakli o‘lchamda.",
-      description: "Easy Plast 19 litrli suv idishlari, pechenye, brokkoli, gilam rulonlari, do‘konlar va kundalik ehtiyojlar uchun polietilen qadoqlarni taklif etadi. Tayyor o‘lchamni tanlang yoki o‘z mahsulotingizga moslab buyurtma bering.",
-      highlights: ["Paketlar va himoya plyonkasi", "O‘lcham va rang tanlovi", "Buyurtma va yetkazish kelishiladi"],
+      title: "Easy Plast MChJ — Kelesdagi qadoqlash ishlab chiqarishi.",
+      emphasis: "Biznesingiz ehtiyojlariga mos.",
+      description: "Easy Plast MChJ polietilen paketlar va himoya qadoqlarini ishlab chiqaradi. Kompaniyaning avvalgi ma’lumotlariga ko‘ra, zavod va bosh ofis Toshkent viloyati, Keles shahri, Binokor ko‘chasida joylashgan. Suv, pechenye, sabzavot, gilam va do‘konlar uchun qadoqlar tayyorlanadi. O‘lcham, rang va qalinlikni ehtiyojingizga moslab tanlashingiz mumkin.",
+      highlights: ["Ishlab chiqarish: Keles, Toshkent viloyati", "Polietilen paketlar va qadoqlar", "O‘lcham va rang buyurtma asosida"],
       contact: "Easy Plast bilan bog‘lanish",
       catalog: "Katalogni ko‘rish",
       custom: "O‘z o‘lchamim"
@@ -66,10 +66,10 @@ export const siteCopy = {
   en: {
     company: {
       eyebrow: "ABOUT THE COMPANY / EASY PLAST",
-      title: "Packaging for your business.",
-      emphasis: "Made to fit.",
-      description: "Easy Plast offers polyethylene packaging for 19-liter water bottles, cookies, broccoli, carpet rolls, retail shops, and everyday needs. Choose a standard size or customize packaging for your product.",
-      highlights: ["Bags and protective film", "Your choice of sizes and colors", "Orders and delivery by arrangement"],
+      title: "Easy Plast LLC — polyethylene packaging production in Keles.",
+      emphasis: "Tailored to your business.",
+      description: "Easy Plast LLC manufactures polyethylene bags and protective packaging. According to the company’s previously published materials, its factory and head office are on Binokor Street in Keles, Tashkent Region. Its products include packaging for water bottles, cookies, vegetables, rolled carpets, and retail stores. Sizes, colors, and thicknesses can be tailored to your requirements.",
+      highlights: ["Production: Keles, Tashkent Region", "Polyethylene bags and packaging", "Custom sizes and colors"],
       contact: "Contact Easy Plast",
       catalog: "Explore products",
       custom: "Custom size"

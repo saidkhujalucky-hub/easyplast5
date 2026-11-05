@@ -301,7 +301,7 @@ export default function EasyPlast({ user: initialUser }: {
           <div className="company-wordmark">EASY PLAST <span>POLYETHYLENE PACKAGING</span></div>
           <h1>{companyCopy.title}<br/><span>{companyCopy.emphasis}</span></h1>
           <p>{companyCopy.description}</p>
-          <div className="company-highlights">{companyCopy.highlights.map((fact,index)=><span key={fact}><Check size={13}/>{fact}</span>)}</div>
+          <div className="company-highlights">{companyCopy.highlights.map(fact=><span key={fact}><Check size={13}/>{fact}</span>)}</div>
           <div className="hero-buttons"><button className="button blue" onClick={() => navigate("home", "catalog")}>{companyCopy.catalog}<ArrowUpRight size={19}/></button><button className="button ghost" onClick={() => configure(customProduct)}>{companyCopy.custom}<Plus size={18}/></button></div>
           <div className="company-contact-strip"><span>{companyCopy.contact}</span><a href="tel:+998998705300"><Phone size={14}/>+998 99 870 53 00</a><a href="tel:+998909875300"><Phone size={14}/>+998 90 987 53 00</a><a href="https://t.me/easyplast" target="_blank" rel="noreferrer"><Send size={14}/>@easyplast</a></div>
           <div className="hero-note"><span className="note-icon"><Check size={13}/></span>{t("Минимальный заказ — 20 кг")}</div>

@@ -3,7 +3,7 @@ export type ProductKey = "water" | "cookies" | "broccoli" | "carpets" | "tshirt"
 export type Product = { key: ProductKey; name: string; description: string; size: string; width: number; length: number; color: string; colorName: string; label: string; accent: string; presets?: {width:number;length:number}[] };
 export const products: Product[] = [
   { key: "water", name: "Для воды", description: "Упаковка для 19-литровой бутыли", size: "48 × 70 см", width: 48, length: 70, color: "#2B5DE0", colorName: "Синий", label: "Оптимальный размер", accent: "#142237" },
-  { key: "cookies", name: "Для печенья", description: "Полиэтиленовый вкладыш внутрь коробки", size: "70 × 45 / 70 × 38 / 70 × 42 см", width: 70, length: 45, color: "#F5F3EE", colorName: "Белый", label: "Оптимальные размеры", accent: "#25252A", presets: [{width:70,length:45},{width:70,length:38},{width:70,length:42}] },
+  { key: "cookies", name: "Для печенья", description: "Полиэтиленовый вкладыш внутрь коробки", size: "70 × 45 / 70 × 38 / 70 × 42 / 60 × 38 / 70 × 40 / 70 × 60 / 80 × 48 / 80 × 70 см", width: 70, length: 45, color: "#F5F3EE", colorName: "Белый", label: "Оптимальные размеры", accent: "#25252A", presets: [{width:70,length:45},{width:70,length:38},{width:70,length:42},{width:60,length:38},{width:70,length:40},{width:70,length:60},{width:80,length:48},{width:80,length:70}] },
   { key: "broccoli", name: "Для брокколи", description: "Голубоватый пакет с мелкой перфорацией", size: "100 × 80 см", width: 100, length: 80, color: "#2B5DE0", colorName: "Синий", label: "Оптимальный размер", accent: "#142B29" },
   { key: "carpets", name: "Для ковров", description: "Защитный рукав для ковра в рулоне", size: "40 / 50 / 60 см", width: 40, length: 100, color: "#2B5DE0", colorName: "Синий", label: "Рекомендуемая ширина", accent: "#20243B" },
   { key: "tshirt", name: "Пакеты «Майка»", description: "Для магазинов и супермаркетов", size: "Свой размер", width: 40, length: 60, color: "#F5F3EE", colorName: "Белый", label: "По вашим параметрам", accent: "#252332" },
@@ -17,6 +17,17 @@ export const colors = [
   { name: "Чёрный", value: "#292C32" },
   { name: "Красный", value: "#DB6056" },
 ];
+export const allowedColors: Record<ProductKey, readonly string[]> = {
+  water: ["Синий", "Белый", "Прозрачный"],
+  cookies: ["Белый", "Прозрачный"],
+  broccoli: ["Синий"],
+  carpets: ["Белый", "Синий"],
+  tshirt: ["Белый", "Чёрный", "Синий"],
+  trash: ["Чёрный"],
+  custom: ["Прозрачный", "Белый", "Синий", "Чёрный"]
+};
+export const colorsForProduct = (key: ProductKey) =>
+  allowedColors[key].map(name => colors.find(color => color.name === name)!).filter(Boolean);
 export type CartItem = { id: string; category: ProductKey; name: string; width: number; length?: number; thickness: number; color: string; colorName: string; quantity: number; purpose?: string; unitPrice?: number; lineTotal?: number };
 export type Delivery = { name: string; phone: string; method: "delivery" | "pickup"; city: string; address: string; latitude: number | null; longitude: number | null; comment: string; requestedDate: string };
 export type SavedOrder = { id: string; number: string; createdAt: number; status: string; items: CartItem[]; delivery: Delivery };

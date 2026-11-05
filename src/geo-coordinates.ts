@@ -21,7 +21,7 @@ export function parseGeoCoordinates(input: string): GeoPoint | null {
     candidates.push(decodeURIComponent(url.pathname));
     candidates.push(decodeURIComponent(url.hash));
   } catch { /* Direct coordinate pair is also supported. */ }
-  const pair = /^\\s*(-?\\d{1,3}(?:\\.\\d+)?)\\s*[,; ]\\s*(-?\\d{1,3}(?:\\.\\d+)?)\\s*$/;
+  const pair = /^\s*(-?\d{1,3}(?:\.\d+)?)\s*[,; ]\s*(-?\d{1,3}(?:\.\d+)?)\s*$/;
   const at = new RegExp("@" + DECIMAL + "," + DECIMAL);
   const bang = new RegExp("!3d" + DECIMAL + "!4d" + DECIMAL);
   for (const candidate of candidates) {

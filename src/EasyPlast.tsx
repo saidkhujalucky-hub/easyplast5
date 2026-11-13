@@ -13,6 +13,8 @@ import { siteCopy } from "./site-content";
 import ManufacturerHome from "./ManufacturerHome";
 import {manufacturerCopy} from "./manufacturer-copy";
 import { parseGeoCoordinates } from "./geo-coordinates";
+import AssistantWidget from "./AssistantWidget";
+import ThemeSwitch from "./ThemeSwitch";
 type View = "home" | "custom" | "cart" | "delivery" | "contacts" | "account" | "printing";
 type User = {
     displayName: string;
@@ -293,7 +295,7 @@ export default function EasyPlast({ user: initialUser }: {
         <button onClick={() => navigate("home", "process")}>{brandCopy.navProcess}</button>
         <button className={view === "contacts" ? "active" : ""} onClick={() => navigate("contacts")}>{t("Контакты")}</button>
       </nav>
-      <div className="header-actions"><LanguageSwitcher /><button className="account-button" aria-label={user ? t("Личный кабинет") : t("Войти")} onClick={() => user ? navigate("account") : setAuthOpen(true)}><UserRound size={18}/><span>{user ? t("Кабинет") : t("Войти")}</span></button><button className="cart-button" onClick={() => navigate("cart")} aria-label={`${t("Ваша заявка")}, ${cart.length}`}><ShoppingBag size={19}/><span className="cart-count">{cart.length}</span></button><button className="mobile-menu-button" aria-label={menu ? t("Закрыть меню") : t("Открыть меню")} aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X /> : <Menu />}</button></div>
+      <div className="header-actions"><ThemeSwitch /><LanguageSwitcher /><button className="account-button" aria-label={user ? t("Личный кабинет") : t("Войти")} onClick={() => user ? navigate("account") : setAuthOpen(true)}><UserRound size={18}/><span>{user ? t("Кабинет") : t("Войти")}</span></button><button className="cart-button" onClick={() => navigate("cart")} aria-label={`${t("Ваша заявка")}, ${cart.length}`}><ShoppingBag size={19}/><span className="cart-count">{cart.length}</span></button><button className="mobile-menu-button" aria-label={menu ? t("Закрыть меню") : t("Открыть меню")} aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X /> : <Menu />}</button></div>
     </div></header>
 
     <main>
@@ -320,6 +322,7 @@ export default function EasyPlast({ user: initialUser }: {
         return;
     } setCart(c => [...c, ...o.items.map(i => ({ ...i, id: makeId(), unitPrice: undefined, lineTotal: undefined }))]); notify(t("Параметры добавлены в новую заявку")); navigate("cart"); }}>{t("Повторить заявку ")}<ArrowRight size={15}/></button></article>)}</div>}</>}</section>}
     </main>
+    <AssistantWidget />
     <footer className="site-footer"><div className="shell"><div className="footer-top"><div><button className="brand" onClick={() => navigate("home")}><span className="brand-icon"><i /><i /><i /></span><span>easy<span className="brand-light">plast</span><span className="brand-dot">.</span></span></button><p>{brandCopy.footer}</p></div><div className="footer-catalog"><span>{t("ПРОДУКЦИЯ")}</span>{products.map(p => <button key={p.key} onClick={() => configure(p)}>{t(p.name)}</button>)}</div><div className="footer-contact"><span>{t("СВЯЗАТЬСЯ С НАМИ")}</span><a href="tel:+998998705300">+998 99 870 53 00</a><a href="tel:+998909875300">+998 90 987 53 00</a><a href="https://t.me/easyplast" target="_blank" rel="noreferrer" className="telegram-link"><Send size={15}/>@easyplast <ArrowUpRight size={15}/></a></div><div className="footer-custom"><span>{t("ЕСТЬ СВОЯ ИДЕЯ?")}</span><button className="footer-create" onClick={() => configure(customProduct)}>{t("Давайте")}<br />{t("упакуем её. ")}<ArrowUpRight size={26}/></button></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Easy Plast</span><a href="./privacy.html">{t("Обработка данных")}</a><span>{t("Сделано под ваш размер.")}</span></div></div></footer>
     <div className={`toast ${toast ? "visible" : ""}`} role="status"><CheckCircle2 size={19}/><span>{t(toast)}</span>{cart.length > 0 && <button onClick={() => { navigate("cart"); setToast(""); }}>{t("К заявке ")}<ArrowRight size={15}/></button>}<button aria-label={t("Закрыть уведомление")} onClick={() => setToast("")}><X size={16}/></button></div>
     <dialog className="auth-dialog" ref={authDialog} onCancel={() => setAuthOpen(false)} onClick={e => { if (e.target === e.currentTarget)

@@ -22,6 +22,8 @@
 
 ## Cloudflare Pages
 
+ИИ-помощник использует Cloudflare Pages Functions (`functions/api/assistant.js`) и Workers AI. В проекте Pages откройте Settings → Bindings → Add → Workers AI, задайте имя `AI` и повторно разверните сайт. Функция работает только при развёртывании через Cloudflare Pages с Git; GitHub Pages и обычная статическая загрузка функции не запускают. На бесплатном тарифе действует дневной лимит Workers AI; после его исчерпания помощник временно недоступен. Проверьте тариф аккаунта и настройте ограничение запросов в Cloudflare для `/api/assistant`, чтобы защитить лимит от злоупотребления. Не отправляйте в чат персональные данные. Модель может ошибаться, поэтому условия заказа подтверждает менеджер.
+
 Для загрузки через dashboard используйте готовые `index.html`, `privacy.html`, `config.js`, `favicon.svg`, `.nojekyll`, `assets/` и `images/`.
 
 При подключении GitHub: build command `npm run build`, build output directory `dist`, версия Node.js 22.19 или новее. Корневая папка репозитория — текущая папка.
